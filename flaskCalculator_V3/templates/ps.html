@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Flask app</title>
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+
+<body>
+<div class="alert" style="display: none;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+<div id="alertText" ></div>
+</div>
+        <div id="AdvancedCalculator" style="">
+                <h3>Welcome to the PowerSpout Advanced PLT and TRG Series calculator.</h3>
+        <p>This is a very powerful tool which will automatically update as you  input information.  However, just like any program, it is only as good  as the information you enter, so please take time to read the&nbsp;<a href="https://drive.google.com/file/d/0BzVDBix3S_qbLS1JZjdlZF8wRTA/view" target="_blank">system design and calculator manual</a>.</p>
+        <p><strong>After entering a value, do not press Enter.</strong> Simply wait 2 seconds for the calculations to update after each change.</p>
+
+        <p>&nbsp;</p>
+        <p><strong><br></strong></p>
+
+                <!-- template /var/www/html/public/sapphire/templates/Includes/Form.ss -->
+
+        <form id="AdvancedCalculatorForm_AdvancedCalculatorForm" action="{{ url_for('submitForm') }}" method="post" >
+
+
+            <p id="AdvancedCalculatorForm_AdvancedCalculatorForm_error" class="message " style="display: none"></p>
+
+
+            <fieldset>
+                <legend></legend>
+
+                    <input class="hidden" type="hidden" id="AdvancedCalculatorForm_AdvancedCalculatorForm_InitialData" name="InitialData" value="1">
+
+                    <div class="field CompositeField  nolabel">
+
+        <div class="field CompositeField  left nolabel">
+
+        <h2 id="AdvancedCalculatorForm_AdvancedCalculatorForm_Preferences" name="Preferences">Your Preferences</h2>
+
+            Update any calculated value that is in an entry box with your preferred value and
+            the calculator will work out the other data as a result of your changes.
+            Experiment with every possible setting and see how it affects the Power at your Shed.
+
+        <div id="SafetyNotes" class="field readonly  notes nolabel" style="display: none;"><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_SafetyNotes" class="readonly notes nolabel"></span>
+        <input type="hidden" name="SafetyNotes" value=""></div></div>
+        </div>
+
+
+        <div class="field CompositeField  right nolabel">
+
+        <div id="Units" class="field dropdown "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Units">Metric or imperial units?</label><div class="middleColumn"><select id="AdvancedCalculatorForm_AdvancedCalculatorForm_Units" name="Units"><option value="Imperial">Imperial</option><option selected="selected" value="Metric">Metric</option></select></div></div>
+
+        <div id="Type" class="field dropdown "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Type">Which PowerSpout?</label><div class="middleColumn"><select id="AdvancedCalculatorForm_AdvancedCalculatorForm_Type" name="Type"><option value="PLT">PLT</option><option value="PLT HP">PLT HP</option><option value="TRG">TRG</option><option value="TRG HP">TRG HP</option></select></div></div>
+        </div>
+
+        </div>
+
+
+
+                    <div class="field CompositeField  nolabel">
+
+        <div class="field CompositeField  left nolabel">
+
+        <h2 id="AdvancedCalculatorForm_AdvancedCalculatorForm_HydroTitle" name="HydroTitle">Hydro</h2>
+
+            These inputs will determine how much power your PowerSpout will be able to harness
+            from your water source.
+
+        <div id="HydroNotes" class="field readonly  notes nolabel" style="display: none;"><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_HydroNotes" class="readonly notes nolabel">(none)</span>
+        <input type="hidden" name="HydroNotes" value=""></div></div>
+        </div>
+
+
+        <div class="field CompositeField  right nolabel">
+
+        <div id="Flow" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Flow">Available Water flow</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorForm_AdvancedCalculatorForm_Flow" name="Flow" value=""></div></div>
+
+        <div id="UsedFlow" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_UsedFlow">Used Water flow</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_UsedFlow" class="readonly"></span>
+        <input type="hidden" name="UsedFlow" value=""></div></div>
+
+        <div id="PipeHead" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeHead">Available Head</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeHead" name="PipeHead" value=""></div></div>
+
+        <div id="PipeLenth" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeLenth">Pipe Length</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeLenth" name="PipeLenth" value="" disabled></div></div>
+
+        <div id="PipeEfficiency" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeEfficiency">Target Pipe Efficiency</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeEfficiency" name="PipeEfficiency" value="" disabled></div></div>
+
+        <div id="PipeDiameter" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeDiameter">Pipe Diameter</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_PipeDiameter" name="PipeDiameter" value="" disabled></div></div>
+
+        <p id="LockPipeDiameter" class="field checkbox">
+            <input type="checkbox" id="AdvancedCalculatorForm_AdvancedCalculatorForm_LockPipeDiameter" name="LockPipeDiameter" value="1" disabled class="disabled">
+            <label class="right" for="AdvancedCalculatorForm_AdvancedCalculatorForm_LockPipeDiameter">Lock Pipe Diameter</label>
+
+        </p>
+
+
+
+        <div id="Powerspouts" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Powerspouts">Number of PowerSpouts</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_Powerspouts" name="Powerspouts" value="" disabled></div></div>
+
+        <p id="LockPowerspouts" class="field checkbox">
+            <input type="checkbox" id="AdvancedCalculatorForm_AdvancedCalculatorForm_LockPowerspouts" name="LockPowerspouts" value="1" disabled class="disabled">
+            <label class="right" for="AdvancedCalculatorForm_AdvancedCalculatorForm_LockPowerspouts">Lock PowerSpouts</label>
+
+        </p>
+
+        <div id="Nozzles" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Nozzles">1 or 2 Jets Per PLT</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_Nozzles" name="Nozzles" value="" disabled></div></div>
+
+        <div id="JetDiameter" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_JetDiameter">Jet diameter</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_JetDiameter" class="readonly"></span>
+        <input type="hidden" name="JetDiameter" value=""></div></div>
+
+        <div id="ActualPipeEfficiency" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualPipeEfficiency">Actual Pipe Efficiency</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualPipeEfficiency" class="readonly"></span>
+        <input type="hidden" name="ActualPipeEfficiency" value=""></div></div>
+
+        <div id="Speed" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Speed">Rotor Speed</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_Speed" class="readonly"></span>
+        <input type="hidden" name="Speed" value=""></div></div>
+
+        <div id="Output" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Output">Output per PowerSpout</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_Output" class="readonly"></span>
+        <input type="hidden" name="Output" value=""></div></div>
+
+        <div id="TotalOutput" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_TotalOutput">Total PowerSpout output</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_TotalOutput" class="readonly"></span>
+        <input type="hidden" name="TotalOutput" value=""></div></div>
+        </div>
+
+        </div>
+
+
+                    <div class="field CompositeField  nolabel">
+
+        <div class="field CompositeField  left nolabel">
+
+        <h2 id="AdvancedCalculatorForm_AdvancedCalculatorForm_ElectricalTitle" name="ElectricalTitle">Electrical</h2>
+
+            These inputs will determine what cable size is necessary to connect your PowerSpouts.  If you have available cable you can override the suggestions and lock them.  If you need to interpret metric measurements into AWG Gauge, you can read the Next Size Up Cable value.
+
+        <div id="ElecNotes" class="field readonly  notes nolabel" style="display: none;"><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_ElecNotes" class="readonly notes nolabel">(none)</span>
+        <input type="hidden" name="ElecNotes" value=""></div></div>
+        </div>
+
+
+        <div class="field CompositeField  right nolabel">
+
+        <div id="OuputVoltage" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_OuputVoltage">PowerSpout Output Voltage</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_OuputVoltage" class="readonly"></span>
+        <input type="hidden" name="OuputVoltage" value=""></div></div>
+
+        <div id="CableEfficiency" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_CableEfficiency">Target Cable Efficiency</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_CableEfficiency" name="CableEfficiency" value="" disabled></div></div>
+
+        <div id="CableLength" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_CableLength">Length of Cable</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_CableLength" name="CableLength" value="" disabled></div></div>
+
+        <div id="LoadVoltage" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_LoadVoltage">Design Load Voltage</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_LoadVoltage" name="LoadVoltage" value="" disabled></div></div>
+
+        <div id="ActualLoadVoltage" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualLoadVoltage">Actual Load Voltage</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualLoadVoltage" class="readonly"></span>
+        <input type="hidden" name="ActualLoadVoltage" value=""></div></div>
+
+        <div id="CableMaterial" class="field dropdown "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_CableMaterial">Cable Material</label><div class="middleColumn"><select id="AdvancedCalculatorForm_AdvancedCalculatorForm_CableMaterial" name="CableMaterial" disabled class="disabled"><option value="Copper">Copper</option><option value="Aluminium">Aluminium</option><option value="Steel">Steel</option></select></div></div>
+
+        <div id="CableSize" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_CableSize">Cable cross section</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_CableSize" name="CableSize" value="" disabled></div></div>
+
+        <p id="LockCableSize" class="field checkbox">
+            <input type="checkbox" id="AdvancedCalculatorForm_AdvancedCalculatorForm_LockCableSize" name="LockCableSize" value="1" disabled class="disabled">
+            <label class="right" for="AdvancedCalculatorForm_AdvancedCalculatorForm_LockCableSize">Lock Cable Size</label>
+
+        </p>
+
+        <div id="CableAWG" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_CableAWG">Next size up cable</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_CableAWG" name="CableAWG" value="" disabled></div></div>
+
+        <div id="CableCurrent" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_CableCurrent">Cable Current</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_CableCurrent" class="readonly"></span>
+        <input type="hidden" name="CableCurrent" value=""></div></div>
+
+        <div id="ActualCableEfficiency" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualCableEfficiency">Actual Cable Efficiency</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualCableEfficiency" class="readonly"></span>
+        <input type="hidden" name="ActualCableEfficiency" value=""></div></div>
+
+        <div id="ActualTotalOutput" class="field readonly "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualTotalOutput">Power at Your Shed</label><div class="middleColumn"><span id="AdvancedCalculatorForm_AdvancedCalculatorForm_ActualTotalOutput" class="readonly"></span>
+        <input type="hidden" name="ActualTotalOutput" value=""></div></div>
+        </div>
+
+        </div>
+
+
+                    <div class="field CompositeField  nolabel">
+
+        <div class="field CompositeField  left nolabel">
+
+        <h2 id="AdvancedCalculatorForm_AdvancedCalculatorForm_SaveTitle" name="SaveTitle">Save &amp; Share Results</h2>
+
+            If you wish to save your results above and share them with a dealer, please
+            input your own email address, and select a dealer if desired.  You will receive
+            an email containing a summary of the results and a reference number.
+            The Job Reference is an optional reference that you can use to track results.  It only appears in the email that is sent out, and can't be used to search results on PowerSpout.com.
+        </div>
+
+
+        <div class="field CompositeField  right nolabel">
+
+        <div id="Email" class="field email "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Email">Email</label><div class="middleColumn"><input type="email" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_Email" name="Email" value="" disabled required></div></div>
+
+        <div id="Dealer" class="field dropdown "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_Dealer">Dealer</label><div class="middleColumn"><select disabled id="AdvancedCalculatorForm_AdvancedCalculatorForm_Dealer" name="Dealer"><option selected  value="0">Choose Dealer</option></option><option value="leif@advancepower.net">Advance Power</option><option value="Derek@AuroraPower.net" required>Aurora Power &amp; Design</option><option value="mostos@b2green.co">B2Green</option><option value="arnyimports@orcon.net.nz">Current Generation Ltd</option><option value="Shahram@dnmsolar.com">DNM Solar</option><option value="azlanrp@yahoo.com">Earth Energy Enterprise</option><option value="greg@ebm.co.nz">E B McDonald Ltd</option><option value="enquiry@ecoinnovation.co.nz">EcoInnovation</option><option value="florin@ecovolt.ro">EcoVolt</option><option value="info@ecco-vs.ch">Energy Consulting Consortium VS</option><option value="greenetech@embarqmail.com">Greene Tech</option><option value="hidric@hidric.com">HIDRIC ONLINE, SLU</option><option value="osaka@izumicorp.co.jp">Izumi Corporation</option><option value="cmaara@kirienergy.com">Kiri Energy Limited</option><option value="c@korins.co.kr">Korins Inc</option><option value="pan@pals.gr">PALS  Vlachogianis Pan &amp; Co.</option><option value="hugh@scoraigwind.co.uk">Scoraig Wind Electric</option><option value="t-and-e@tande.com.tw">TANDE Energy And Temperature Associates Pty</option><option value="mhturbines@bigpond.com">Tas Energy and Heating</option><option value="tsmi_ingenieria@hotmail.com">Tsunami</option><option value="chris.brooks@westflight.co.uk">Westflight</option></select> </div></div>
+
+        <div id="JobReference" class="field text "><label class="left" for="AdvancedCalculatorForm_AdvancedCalculatorForm_JobReference">Job Reference</label><div class="middleColumn"><input type="text" class="text disabled" id="AdvancedCalculatorForm_AdvancedCalculatorForm_JobReference" name="JobReference" value="" disabled required></div></div>
+
+        <div id="doSave" class="field inlineformaction  nolabel"><div class="middleColumn"><input type="submit" name="action_doSave" value="Save &amp; Share Results" id="AdvancedCalculatorForm_AdvancedCalculatorForm_doSave" class="action disabled" disabled></div></div>
+        </div>
+
+
+
+			<input class="hidden" type="hidden" name="turbine_type" value="ps" />
+
+                <div class="clear"><!-- --></div>
+            </fieldset>
+
+
+
+        </form>
+
+
+        <!-- end template /var/www/html/public/sapphire/templates/Includes/Form.ss -->
+                <p>Your turbine will be designed for the site data you supply above. If you operate it on a different site, the output power will differ. A new generator core may be required to obtain the best results in such cases. If you intend to run your turbine over a wide range of flow rates, you need to state this at the time of ordering. A different generator core can be supplied for an additional charge.</p>
+            </div>
+</body>
+
+
+{% block javascript %}
+    <script type="text/javascript">
+        {% include 'javascript/PScalc.js' %}
+    </script>
+{% endblock %}
+
+</html>

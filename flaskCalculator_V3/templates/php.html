@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Flask app</title>
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+
+<body>
+<div class="alert" style="display: none;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+<div id="alertText" ></div>
+</div>
+        <div id="AdvancedCalculator" style="">
+                <h3>Welcome to the PowerSpout Advanced PLT and TRG Series calculator.</h3>
+        <p>This is a very powerful tool which will automatically update as you  input information.  However, just like any program, it is only as good  as the information you enter, so please take time to read the&nbsp;<a href="https://drive.google.com/file/d/0BzVDBix3S_qbLS1JZjdlZF8wRTA/view" target="_blank">system design and calculator manual</a>.</p>
+        <p><strong>After entering a value, do not press Enter.</strong> Simply wait 2 seconds for the calculations to update after each change.</p>
+
+        <p>&nbsp;</p>
+        <p><strong><br></strong></p>
+
+                <!-- template /var/www/html/public/sapphire/templates/Includes/Form.ss -->
+
+
+<form id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm" action="{{ url_for('submitForm') }}" method="post" >
+
+
+	<p id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_error" class="message " style="display: none"></p>
+
+
+	<fieldset>
+		<legend></legend>
+
+			<input class="hidden" type="hidden" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_InitialData" name="InitialData" value="1" />
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_Preferences" name="Preferences">Unit Preference</h2>
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="meas_sys" class="field dropdown "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_meas_sys">Units</label><div class="middleColumn"><select id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_meas_sys" name="meas_sys"><option value="Imperial">Imperial</option><option selected="selected" value="Metric">Metric</option></select></div></div>
+</div>
+
+</div>
+
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_HydroTitle" name="HydroTitle">Hydro Supply</h2>
+
+These inputs will determine how much power your PowerSpout HydroPump will be able to capture from your water source.
+
+<div id="DesignNotesHydro" class="field readonly  notes nolabel"><div class="middleColumn"><span id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_DesignNotesHydro" class="readonly notes nolabel"><i></i></span>
+<input type="hidden" name="DesignNotesHydro" value="" /></div></div>
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="available_input_flow" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_available_input_flow">Available Water Flow</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_available_input_flow" name="available_input_flow" value="0.00" /></div></div>
+
+<div id="actual_IP_flow" class="field readonly  "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_actual_IP_flow">Actual input water flow used</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_actual_IP_flow"></span><input type="hidden" class="text"  name="actual_IP_flow" value="" /></div></div>
+
+<div id="input_head" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_head">Available Head</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_head" name="input_head" value="0.00" /></div></div>
+
+<div id="input_pipe_len" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_pipe_len">Penstock Length</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_pipe_len" name="input_pipe_len" value="" /></div></div>
+
+<div id="input_eff" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_eff">Penstock Efficiency</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_eff" name="input_eff" value="" /></div></div>
+
+<div id="input_pipe_diam" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_pipe_diam">Penstock Diameter</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_input_pipe_diam" name="input_pipe_diam" value="" /></div></div>
+
+<p id="lock_penstock_dia" class="field checkbox">
+	<input type="checkbox" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_lock_penstock_dia" name="lock_penstock_dia" value="1" />
+	<label class="right" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_lock_penstock_dia">Lock Pipe Diameter</label>
+
+</p>
+</div>
+
+</div>
+
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_PumpTitle" name="PumpTitle">Pelton Pump</h2>
+
+These inputs will determine how much water your PowerSpout HydroPump will be able to pump using the energy calculated from above.
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="number_of_spouts" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_number_of_spouts">Number of Powerspouts</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_number_of_spouts" name="number_of_spouts" value="" /></div></div>
+
+<div id="number_of_jets" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_number_of_jets">Number of Jets Per PowerSpout</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_number_of_jets" name="number_of_jets" value="" /></div></div>
+
+<p id="lock_PHPs_jets" class="field checkbox">
+	<input type="checkbox" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_lock_PHPs_jets" name="lock_PHPs_jets" value="1" />
+	<label class="right" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_lock_PHPs_jets">Lock Number of PowerSpouts</label>
+
+</p>
+
+<div id="eff_input_head" class="field readonly  "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_eff_input_head">Operating Input Head</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_eff_input_head"><input type="hidden" class="text"  name="eff_input_head" value="" /></div></div>
+
+<div id="jet_diam" class="field readonly "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_jet_diam">Jet Diameter</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_jet_diam"></span> <input type="hidden" class="text"  name="jet_diam" value="" /></div></div>
+
+<div id="pelton_rpm" class="field readonly "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_pelton_rpm">Pelton RPM</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_pelton_rpm"></span><input type="hidden" class="text"  name="pelton_rpm" value="" /></div></div>
+
+<div id="cam_offset" class="field readonly "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_cam_offset">Recommended Stroke</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_cam_offset"></span> <input type="hidden" class="text"  name="cam_offset" value="" /></div></div>
+
+<div id="PHP_deliver_h" class="field readonly "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_PHP_deliver_h">PHP Delivery Head</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_PHP_deliver_h"></span> <input type="hidden" class="text"  name="PHP_deliver_h" value="" /></div></div>
+</div>
+
+</div>
+
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_OutputTitle" name="OutputTitle">Output Delivery Pipe</h2>
+
+These inputs relate to the pipe from the PowerSpout Hydro Pump up to the destination (eg Storage Tank).
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="output_head" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_head">Output Pipe Head</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_head" name="output_head" value="" /></div></div>
+
+<div id="output_pipe_len" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_pipe_len">Output Pipe Length</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_pipe_len" name="output_pipe_len" value="" /></div></div>
+
+<div id="output_eff" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_eff">Output Pipe Efficiency</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_eff" name="output_eff" value="" /></div></div>
+
+<div id="output_pipe_diam" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_pipe_diam">Output Pipe Diameter</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_output_pipe_diam" name="output_pipe_diam" value="" /></div></div>
+
+<p id="lock_OP_pipe_dia" class="field checkbox">
+	<input type="checkbox" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_lock_OP_pipe_dia" name="lock_OP_pipe_dia" value="1" />
+	<label class="right" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_lock_OP_pipe_dia">Lock Output Pipe Diameter</label>
+
+</p>
+
+<div id="total_OP_flow" class="field readonly "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_total_OP_flow">Estimated Output Flow</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_total_OP_flow"></span> <input type="hidden" class="text"  name="total_OP_flow" value="" /></div></div>
+
+<div id="total_OP_flow_day" class="field readonly "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_total_OP_flow_day">Estimated Daily Output</label><div class="middleColumn"><span class="readonly" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_total_OP_flow_day"></span> <input type="hidden" class="text"  name="total_OP_flow_day" value="" /></div></div>
+</div>
+
+</div>
+
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_SaveTitle" name="SaveTitle">Save &amp; Share Results</h2>
+
+	If you wish to save your results above and share them with a dealer, please
+	input your own email address, and select a dealer if desired.  You will receive
+	an email containing a summary of the results and a reference number.
+	The Job Reference is an optional reference that you can use to track results.  It only appears in the email that is sent out, and can't be used to search results on PowerSpout.com.
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="Email" class="field email "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_Email">Email</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_Email" name="Email" value=""required /></div></div>
+
+<div id="Dealer" class="field dropdown "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_Dealer">Dealer</label><div class="middleColumn"><select required id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_Dealer" name="Dealer"><option selected value="0">Choose Dealer</option><option value="leif@advancepower.net">Advance Power</option><option value="Derek@AuroraPower.net">Aurora Power & Design</option><option value="mostos@b2green.co">B2Green</option><option value="arnyimports@orcon.net.nz">Current Generation Ltd</option><option value="Shahram@dnmsolar.com">DNM Solar</option><option value="azlanrp@yahoo.com">Earth Energy Enterprise</option><option value="greg@ebm.co.nz">E B McDonald Ltd</option><option value="enquiry@ecoinnovation.co.nz">EcoInnovation</option><option value="florin@ecovolt.ro">EcoVolt</option><option value="info@ecco-vs.ch">Energy Consulting Consortium VS</option><option value="greenetech@embarqmail.com">Greene Tech</option><option value="hidric@hidric.com">HIDRIC ONLINE, SLU</option><option value="osaka@izumicorp.co.jp">Izumi Corporation</option><option value="cmaara@kirienergy.com">Kiri Energy Limited</option><option value="c@korins.co.kr">Korins Inc</option><option value="pan@pals.gr">PALS  Vlachogianis Pan & Co.</option><option value="hugh@scoraigwind.co.uk">Scoraig Wind Electric</option><option value="t-and-e@tande.com.tw">TANDE Energy And Temperature Associates Pty</option><option value="mhturbines@bigpond.com">Tas Energy and Heating</option><option value="tsmi_ingenieria@hotmail.com">Tsunami</option><option value="chris.brooks@westflight.co.uk">Westflight</option></select></div></div>
+
+<div id="JobReference" class="field text "><label class="left" for="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_JobReference">Job Reference</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_JobReference" name="JobReference" value="" required/></div></div>
+
+<div id="doSave" class="field inlineformaction  nolabel"><div class="middleColumn"><input type="submit" name="action_doSave" value="Save & Share Results" id="AdvancedCalculatorPumpForm_AdvancedCalculatorPumpForm_doSave" class="action " /></div></div>
+</div>
+
+</div>
+
+
+			<input class="hidden" type="hidden" name="turbine_type" value="php" />
+
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+
+
+</form>
+
+        <!-- end template /var/www/html/public/sapphire/templates/Includes/Form.ss -->
+                <p>Your turbine will be designed for the site data you supply above. If you operate it on a different site, the output power will differ. A new generator core may be required to obtain the best results in such cases. If you intend to run your turbine over a wide range of flow rates, you need to state this at the time of ordering. A different generator core can be supplied for an additional charge.</p>
+            </div>
+</body>
+
+
+{% block javascript %}
+    <script type="text/javascript">
+        {% include 'javascript/PHPcalc.js' %}
+    </script>
+{% endblock %}
+
+</html>

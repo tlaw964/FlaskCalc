@@ -1,0 +1,44 @@
+<div class=""><div class="aHl"></div><div id=":op" tabindex="-1"></div><div id=":oe" class="ii gt"><div id=":od" class="a3s aXjCH "><u></u>
+
+
+
+
+
+<div bgcolor="#ffffff">
+Below please find the requested results from the PowerSpout Advanced Calculator:<br>
+Your Reference is: <b>{{Calculationcode}}</b><br>
+Your Job Reference is: <b>{{formDict.get('JobReference', None)}}</b><br>
+Click <a href="{{url}}">here</a> to view them in
+the calculator.<br>
+<h1>Preferences</h1>
+These are the preferences you indicated and any applicable safety notes.<br>
+Units: {{formDict.get('Units', None)}}<br>
+
+<strong><span style="font-family:monospace"><span style="font-size:x-small"></span></span><br></strong><br><br>
+
+
+Available Water Flow: {{formDict.get('available_input_flow', None)}}<br>
+Actual input water flow used: {{formDict.get('actual_IP_flow', None)}}<br>
+Input Head:{{formDict.get('input_head', None)}} <br>
+Penstock Length:{{formDict.get('input_pipe_len', None)}} <br>
+Penstock Efficiency: {{formDict.get('input_eff', None)}} <br>
+Penstock Diameter: {{formDict.get('input_pipe_diam', None)}}  <br><br>
+<h2>Pelton Pump</h2>
+Number of Powerspouts: {{formDict.get('number_of_spouts', None)}} <br>
+Number of Jets: {{formDict.get('number_of_jets', None)}} <br>
+<br><br>
+Operating Input Head: {{formDict.get('eff_input_head', None)}} m<br>
+Jet Diameter: {{formDict.get('jet_diam', None)}} <br>
+Pelton RPM: {{formDict.get('pelton_rpm', None)}} <br>
+Recommended Stroke: {{formDict.get('cam_offset', None)}}<br>
+PHP Delivery Head: {{formDict.get('PHP_deliver_h', None)}} <br>
+<h2>Output Delivery Pipe</h2>
+Output Pipe Head: {{formDict.get('output_head', None)}} <br>
+Output Pipe Length: {{formDict.get('output_pipe_len', None)}} <br>
+Output Pipe Efficiency: {{formDict.get('output_eff', None)}} <br>
+Output Pipe Diameter: {{formDict.get('output_pipe_diam', None)}} <br><br>
+Estimated Output Flow: {{formDict.get('total_OP_flow', None)}}<br>
+Estimated Daily Output: {{formDict.get('total_OP_flow_day', None)}} <br><br>
+<h2>Thank you for using the PowerSpout PHP Hydro Pump Advanced Calculator!</h2><div class="yj6qo"></div><div class="adL">
+
+</div></div></div></div></div></div>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Flask app</title>
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+
+<body>
+<div class="alert" style="display: none;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+<div id="alertText" ></div>
+</div>
+        <div id="AdvancedCalculator" style="">
+                <h3>Welcome to the PowerSpout Advanced PLT and TRG Series calculator.</h3>
+        <p>This is a very powerful tool which will automatically update as you  input information.  However, just like any program, it is only as good  as the information you enter, so please take time to read the&nbsp;<a href="https://drive.google.com/file/d/0BzVDBix3S_qbLS1JZjdlZF8wRTA/view" target="_blank">system design and calculator manual</a>.</p>
+        <p><strong>After entering a value, do not press Enter.</strong> Simply wait 2 seconds for the calculations to update after each change.</p>
+
+        <p>&nbsp;</p>
+        <p><strong><br></strong></p>
+
+                <!-- template /var/www/html/public/sapphire/templates/Includes/Form.ss -->
+
+		<!-- template /var/www/html/public/sapphire/templates/Includes/Form.ss -->
+
+<form id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm" action="{{ url_for('submitForm') }}" method="post" >
+
+
+	<p id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_error" class="message " style="display: none"></p>
+
+
+	<fieldset>
+		<legend></legend>
+
+			<input class="hidden" type="hidden" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_InitialData" name="InitialData" value="1" />
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Preferences" name="Preferences">Preferences</h2>
+
+
+
+<div id="DesignNotesSafety" class="field readonly  notes nolabel"><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_DesignNotesSafety" class="readonly notes nolabel"><i>(none)</i></span>
+<input type="hidden" name="DesignNotesSafety" value="" /></div></div>
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="MeasSys" class="field dropdown "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_MeasSys">Metric or Imperial Units?</label><div class="middleColumn"><select id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_MeasSys" name="MeasSys"><option value="Imperial">Imperial</option><option selected="selected" value="Metric">Metric</option></select></div></div>
+
+<div id="Type" class="field dropdown "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Type">Which PowerSpout?</label><div class="middleColumn"><select id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Type" name="Type"><option value="LH/LH Pro">LH/LH Pro</option><option value="LH mini">LH mini</option></select></div></div>
+</div>
+
+</div>
+
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_HydroTitle" name="HydroTitle">Hydro</h2>
+
+
+
+<div id="DesignNotesHydro" class="field readonly  notes nolabel"><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_DesignNotesHydro" class="readonly notes nolabel"><i>(none)</i></span>
+<input type="hidden" name="DesignNotesHydro" value="" /></div></div>
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="AvailLPS" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_AvailLPS">Available Water Flow</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_AvailLPS" name="AvailLPS" value="0.00" /></div></div>
+
+<div id="ActualLPS" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_ActualLPS">Used Water Flow</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_ActualLPS" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="ActualLPS" value="" /></div></div>
+
+<div id="LHHead" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHHead">Available Head</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHHead" name="LHHead" value="" /></div></div>
+
+<div id="PipeFlume" class="field dropdown "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeFlume">Pipe or Flume</label><div class="middleColumn"><select id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeFlume" name="PipeFlume"><option value="Pipe">Pipe</option><option value="Flume">Flume</option></select></div></div>
+
+<div id="PipeHead" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeHead">Pipe Head</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeHead" name="PipeHead" value="" /></div></div>
+
+<div id="PipeMat" class="field dropdown "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeMat">Pipe Material</label><div class="middleColumn"><select id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeMat" name="PipeMat"><option value="Drawn plastic tube">Drawn plastic tube</option><option value="General steel">General steel</option><option value="Asphalted iron">Asphalted iron</option><option value="Galvanized steel">Galv. steel</option><option value="Cast steel">Cast steel</option><option value="Wood">Wood</option><option value="Concrete">Concrete</option><option value="Riveted Steel">RivetedSteel</option></select></div></div>
+
+<div id="PipeDia" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeDia">Pipe Diameter</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeDia" name="PipeDia" value="" /></div></div>
+
+<div id="PipeHeight" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeHeight">UNUSED</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeHeight" name="PipeHeight" value="" /></div></div>
+
+<div id="PipeLen" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeLen">Pipe Length</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeLen" name="PipeLen" value="" /></div></div>
+
+<div id="WaterDepth" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_WaterDepth">Water Depth</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_WaterDepth" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="WaterDepth" value="" /></div></div>
+
+<div id="PipeCapacity" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeCapacity">Pipe Capacity</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_PipeCapacity" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="PipeCapacity" value="" /></div></div>
+
+<div id="LHDraftT" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHDraftT">Draft tube diameter</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHDraftT" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LHDraftT" value="" /></div></div>
+
+<p id="LockNumLH" class="field checkbox">
+	<input type="checkbox" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LockNumLH" name="LockNumLH" value="1" />
+	<label class="right" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LockNumLH">Lock PowerSpouts</label>
+
+</p>
+
+<div id="NumLH" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_NumLH">Number of PowerSpouts</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_NumLH" name="NumLH" value="" /></div></div>
+
+<div id="LHrpmOpr" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHrpmOpr">Rotor Speed</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHrpmOpr" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LHrpmOpr" value="" /></div></div>
+
+<div id="LHrpmNL" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHrpmNL">No Load Rotor Speed</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHrpmNL" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LHrpmNL" value="" /></div></div>
+
+<div id="LHWattsOpr" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHWattsOpr">Output per PowerSpout</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHWattsOpr" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LHWattsOpr" value="" /></div></div>
+
+<div id="LHPwrTot" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHPwrTot">Total PowerSpout Output</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHPwrTot" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LHPwrTot" value="" /></div></div>
+</div>
+
+</div>
+
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_ElectricalTitle" name="ElectricalTitle">Electrical</h2>
+
+
+
+<div id="DesignNotesElec" class="field readonly  notes nolabel"><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_DesignNotesElec" class="readonly notes nolabel"><i>(none)</i></span>
+<input type="hidden" name="DesignNotesElec" value="" /></div></div>
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="LHVOpr" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHVOpr">PowerSpout Output Voltage</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LHVOpr" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LHVOpr" value="" /></div></div>
+
+<div id="LH_V_NL" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LH_V_NL">PowerSpout No Load Voltage</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LH_V_NL" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LH_V_NL" value="" /></div></div>
+
+<div id="CableEffTarget" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableEffTarget">Target Cable Efficiency</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableEffTarget" name="CableEffTarget" value="" /></div></div>
+
+<div id="ActualCableEff" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_ActualCableEff">Actual Cable Efficiency</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_ActualCableEff" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="ActualCableEff" value="" /></div></div>
+
+<div id="CableLen" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableLen">Cable Length</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableLen" name="CableLen" value="" /></div></div>
+
+<div id="LoadVmax" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LoadVmax">Load Max Voltage</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LoadVmax" name="LoadVmax" value="" /></div></div>
+
+<div id="LoadVmin" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LoadVmin">Load Min Voltage</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LoadVmin" name="LoadVmin" value="" /></div></div>
+
+<div id="CableMaterial" class="field dropdown "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableMaterial">Cable Material</label><div class="middleColumn"><select id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableMaterial" name="CableMaterial"><option value="Copper">Copper</option><option value="Aluminium">Aluminium</option><option value="Steel">Steel</option></select></div></div>
+
+<p id="LockCable" class="field checkbox">
+	<input type="checkbox" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LockCable" name="LockCable" value="1" />
+	<label class="right" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LockCable">Lock Cable</label>
+
+</p>
+
+<div id="CableSize" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableSize">Cable Size</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableSize" name="CableSize" value="" /></div></div>
+
+<div id="CableAWG" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableAWG">Cable AWG</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableAWG" name="CableAWG" value="" /></div></div>
+
+<div id="CableA" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableA">Cable Amperage</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_CableA" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="CableA" value="" /></div></div>
+
+<div id="Aload_V" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Aload_V">Actual Load Voltage </label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Aload_V" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="Aload_V" value="" /></div></div>
+
+<div id="LoadPwr" class="field readonly "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LoadPwr">Power at Your Shed</label><div class="middleColumn"><span id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_LoadPwr" class="readonly"><i>(none)</i></span>
+<input type="hidden" name="LoadPwr" value="" /></div></div>
+</div>
+
+</div>
+
+
+			<div class="field CompositeField  nolabel">
+
+<div class="field CompositeField  left nolabel">
+
+<h2 id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_SaveTitle" name="SaveTitle">Save &amp; Share Results</h2>
+
+SaveDescription
+</div>
+
+
+<div class="field CompositeField  right nolabel">
+
+<div id="Email" class="field email "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Email">Email</label><div class="middleColumn"><input type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Email" name="Email" value="" required/></div></div>
+
+<div id="Dealer" class="field dropdown "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Dealer">Dealer</label><div class="middleColumn"><select required id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_Dealer" name="Dealer"><option selected  value="0">Choose Dealer</option></option><option value="leif@advancepower.net">Advance Power</option><option value="Derek@AuroraPower.net">Aurora Power & Design</option><option value="mostos@b2green.co">B2Green</option><option value="arnyimports@orcon.net.nz">Current Generation Ltd</option><option value="Shahram@dnmsolar.com">DNM Solar</option><option value="azlanrp@yahoo.com">Earth Energy Enterprise</option><option value="greg@ebm.co.nz">E B McDonald Ltd</option><option value="enquiry@ecoinnovation.co.nz">EcoInnovation</option><option value="florin@ecovolt.ro">EcoVolt</option><option value="info@ecco-vs.ch">Energy Consulting Consortium VS</option><option value="greenetech@embarqmail.com">Greene Tech</option><option value="hidric@hidric.com">HIDRIC ONLINE, SLU</option><option value="osaka@izumicorp.co.jp">Izumi Corporation</option><option value="cmaara@kirienergy.com">Kiri Energy Limited</option><option value="c@korins.co.kr">Korins Inc</option><option value="pan@pals.gr">PALS  Vlachogianis Pan & Co.</option><option value="hugh@scoraigwind.co.uk">Scoraig Wind Electric</option><option value="t-and-e@tande.com.tw">TANDE Energy And Temperature Associates Pty</option><option value="mhturbines@bigpond.com">Tas Energy and Heating</option><option value="tsmi_ingenieria@hotmail.com">Tsunami</option><option value="chris.brooks@westflight.co.uk">Westflight</option></select></div></div>
+
+<div id="JobReference" class="field text "><label class="left" for="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_JobReference">Job Reference</label><div class="middleColumn"><input required type="text" class="text" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_JobReference" name="JobReference" value="" /></div></div>
+
+<div id="doSave" class="field inlineformaction  nolabel"><div class="middleColumn"><input type="submit" name="action_doSave" value="Save & Share Results" id="AdvancedCalculatorLHForm_AdvancedCalculatorLHForm_doSave" class="action " /></div></div>
+</div>
+
+</div>
+
+
+			<input class="hidden" type="hidden" name="turbine_type" value="lh" />
+
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+
+
+</form>
+
+
+
+        <!-- end template /var/www/html/public/sapphire/templates/Includes/Form.ss -->
+                <p>Your turbine will be designed for the site data you supply above. If you operate it on a different site, the output power will differ. A new generator core may be required to obtain the best results in such cases. If you intend to run your turbine over a wide range of flow rates, you need to state this at the time of ordering. A different generator core can be supplied for an additional charge.</p>
+            </div>
+</body>
+
+
+{% block javascript %}
+    <script type="text/javascript">
+        {% include 'javascript/LHcalc.js' %}
+    </script>
+{% endblock %}
+
+</html>

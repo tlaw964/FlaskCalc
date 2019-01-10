@@ -1,0 +1,69 @@
+<div class=""><div class="aHl"></div><div id=":op" tabindex="-1"></div><div id=":oe" class="ii gt"><div id=":od" class="a3s aXjCH "><u></u>
+
+<div bgcolor="#ffffff">
+Below please find the requested results from the PowerSpout Advanced Calculator:<br>
+Your Reference is: <b>{{Calculationcode}}</b><br>
+Your Job Reference is: <b>{{formDict.get('JobReference', None)}}</b><br>
+Click <a href="{{url}}">here</a> to view them in
+the calculator.<br>
+<h1>Preferences</h1>
+These are the preferences you indicated and any applicable safety notes.<br>
+Units: {{formDict.get('MeasSys', None)}}<br>
+Type: {{formDict.get('Type', None)}}<br>
+<br> {{formDict.get('DesignNotesSafety', None)|safe}}<br><br><br>
+<h1>Hydro</h1>
+
+<strong>Notes:</strong><br>
+{{formDict.get('DesignNotesHydro', None)|safe}}
+<strong>Results:</strong><br>
+Available Flow: {{formDict.get('AvailLPS', None)}}<br>
+Used Flow: {{formDict.get('ActualLPS', None)}}<br>
+LH Head: {{formDict.get('LHHead', None)}}<br>
+
+{% if formDict.get('PipeFlume', None) ==  'Pipe' %}
+    Pipe Material: {{formDict.get('PipeMat', None)}}<br>
+    Pipe Fall: {{formDict.get('PipeHead', None)}}<br>
+    Pipe Diameter: {{formDict.get('PipeDia', None)}}<br>
+    Pipe Length: {{formDict.get('PipeLen', None)}}<br>
+    Water Depth in Pipe: {{formDict.get('WaterDepth', None)}}<br>
+    Pipe Capacity: {{formDict.get('PipeCapacity', None)}}<br>
+{% else %}
+        Flume Material: {{formDict.get('PipeMat', None)}}<br>
+    Flume Fall: {{formDict.get('PipeHead', None)}}<br>
+    Flume Width: {{formDict.get('PipeDia', None)}}<br>
+    Flume Height: {{formDict.get('PipeHeight', None)}}<br>
+    Flume Length: {{formDict.get('PipeLen', None)}}<br>
+    Water Depth in Flume: {{formDict.get('WaterDepth', None)}}<br>
+    Flume Capacity: {{formDict.get('PipeCapacity', None)}}<br>
+
+{% endif %}
+
+
+
+Draft Tube Diameter:{{formDict.get('LHDraftT', None)}}<br>
+Number of Powerspout LH Units: {{formDict.get('NumLH', None)}} <br>
+Operating RPM: {{formDict.get('LHrpmOpr', None)}}<br>
+"No Load" RPM: {{formDict.get('LHrpmNL', None)}}<hr>
+<h1>Electrical</h1>
+<strong>Notes:</strong><br>
+    {{formDict.get('DesignNotesElec', None)|safe}}
+<br><br>&nbsp;<br><br>
+<strong>Results:</strong><br>
+LH Output Voltage: {{formDict.get('LHVOpr', None)}}<br>
+LH "No Load" Voltage: {{formDict.get('LH_V_NL', None)}}<br>
+Target Cable Efficiency: {{formDict.get('CableEffTarget', None)}}<br>
+Actual Cable Efficiency: {{formDict.get('ActualCableEff', None)}} <br>
+CableLength: {{formDict.get('CableLen', None)}}<br>
+Load Max Voltage: {{formDict.get('LoadVmax', None)}}<br>
+Load Min Voltage: {{formDict.get('LoadVmin', None)}}<br>
+ActualLoadVoltage: {{formDict.get('Aload_V', None)}}<br>
+Cable Material: {{formDict.get('CableMaterial', None)}}<br>
+Cable Size: {{formDict.get('CableSize', None)}}<br>
+Cable AWG: {{formDict.get('CableAWG', None)}}<br>
+Cable Amperage: {{formDict.get('CableA', None)}}<br>
+<h1>Actual Total Output: {{formDict.get('LoadPwr', None)}}</h1>
+<br>
+Thank you for using the PowerSpout LH Advanced Calculator.
+</div>
+</div><div class="yj6qo"></div><div class="adL">
+</div></div></div><div id=":ot" class="ii gt" style="display:none"><div id=":ou" class="a3s aXjCH undefined"></div></div><div class="hi"></div></div>

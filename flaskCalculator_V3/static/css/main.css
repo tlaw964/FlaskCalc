@@ -1,0 +1,113 @@
+
+
+/* [m] FORMS */
+
+#AdvancedCalculatorForm_AdvancedCalculatorForm .note,
+#AdvancedCalculatorLHForm_AdvancedCalculatorLHForm .note{
+	display:block;
+	padding: 14px;
+	background-color:rgba(255, 255, 255, 1);
+	font-weight:bold;
+	color:#FFFFFF;
+	font-size:large;
+}
+.loginForm fieldset, #AdvancedCalculator fieldset{border: 0; padding: 0; margin: 0;}
+
+	/* Login form */
+	.loginForm form{padding: 25px;}
+
+	.loginForm .field{width: 100%; padding-bottom: 10px; overflow: auto;}
+		.loginForm label{float: left; display: block; font-size: 14px; border-bottom: 1px solid #ccc; color: #748db5; width: 150px; padding: 5px 0 1px 0;}
+		.loginForm .middleColumn, .loginForm .Actions{display: block; margin-left: 150px;}
+			.loginForm .middleColumn input, .loginForm .middleColumn textarea, .loginForm .middleColumn select{border: 1px solid #abacae; width: 200px; padding: 3px;}
+			.loginForm .middleColumn textarea{font-size: 1em; font-family: Arial, Verdana, sans-serif;}
+				.loginForm .middleColumn input:hover, .loginForm .middleColumn textarea:hover, .loginForm .middleColumn select:hover{border: 1px solid #7b94b4;}
+				.loginForm .middleColumn input:focus, .loginForm .middleColumn textarea:focus, .loginForm .middleColumn select:focus{border: 1px solid #748db5;}
+			.loginForm label.required{font-size: 0.86em; color: #971717;}
+
+		.loginForm .middleColumn .radio, .loginForm .middleColumn .checkbox{border: 0;}
+
+		/* Nested middleColumn fix */
+		.loginForm .confirmedpassword .middleColumn{margin-left: 0;}
+			.loginForm .confirmedpassword .middleColumn .middleColumn{margin-left: 150px;}
+
+		#no-account{background: #f7f7f7; border-bottom: 1px solid #eaeaea; font-size: 12px; margin: 10px 25px; padding: 10px;}
+
+	.loginForm .radio, .loginForm .checkbox{width: auto!important;}
+
+	/* Calculator */
+	#AdvancedCalculator .CompositeField{background: url(../images/CompositeField.png) repeat-y; border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; margin: 15px 0; padding: 0; width: 610px; overflow: auto;}
+		#AdvancedCalculator .CompositeField .CompositeField{background: none; border: 0; margin: 0; padding: 0; width: auto; overflow: visible;}
+
+		/* Left Column */
+		#AdvancedCalculator .CompositeField div.left{float: left; font-size: 11px; color: #8E96A3; text-align: justify; width: 214px; padding: 12px;}
+			#AdvancedCalculator .CompositeField div.left h2{color: #74839b; margin: 0; padding: 0 0 4px 0;}
+			#AdvancedCalculator span.notes{display: block; font-size: 11px!important; color: #c3291e!important; font-weight: normal!important; padding-top: 10px!important;width:214px;}
+
+		/* Right Column */
+		#AdvancedCalculator .CompositeField div.right{float: right; background: url(../images/CompositeFieldRight.png) no-repeat; width: 359px; padding: 2px 0;}
+			#AdvancedCalculator .CompositeField div.right .field{border-bottom: 1px solid #fff; width: 100%; overflow: auto; padding: 6px 0;}
+				#AdvancedCalculator .CompositeField div.right .field label{float: left; font-size: 10px; color: #4a4a4a; text-align: right; width: 160px; padding-top: 6px;}
+					#AdvancedCalculator .CompositeField div.right .readonly label{padding-top: 4px!important;}
+				#AdvancedCalculator .CompositeField div.right .field .middleColumn{float: right; width: 190px;}
+					#AdvancedCalculator input, #AdvancedCalculator select, #AdvancedCalculator textarea{background: #fcfcfc; border: 1px solid #cdd3de; font-size: 13px; width: 170px; padding: 3px;}
+					#AdvancedCalculator select{width: 178px;}
+					#AdvancedCalculator .checkbox input, #AdvancedCalculator .radio input{width: auto!important;}
+					#AdvancedCalculator .readonly span.readonly{font-size: 14px; color: #748db5; font-weight: bold; font-style: normal!important;}
+
+			/* Checkboxes and Radio buttons */
+			#AdvancedCalculator p.checkbox{position: relative; margin: 0;}
+				#AdvancedCalculator .checkbox label, #AdvancedCalculator .radio label{padding: 7px 0 5px!important;}
+						#AdvancedCalculator .checkbox input, #AdvancedCalculator .radio input{position: absolute; top: 10px; left: 166px; border: 0; background: 0;}
+
+			/* Recaptcha exception */
+			#AdvancedCalculator #recaptcha_response_field{position: relative!important; top: 3px!important; left: 0!important;}
+
+#AdvancedCalculator #Flow{background: none;}
+
+#Form_UserForm textarea{
+	width:404px;
+}
+
+.loading {
+	position:relative;
+	left: 140px;
+	top: -22px;
+}
+
+.disabled {
+
+background-color: #D3D3D3 !important;
+}
+
+/* Style the header */
+
+.alert {
+padding: 20px;
+position: fixed;
+background-color: #f44336; /* Red */
+color: white;
+font-size: 130%;
+font-weight: bold;
+bottom: 0; /* Position the navbar at the top of the page */
+width: 98%; /* Full width */
+}
+
+/* The close button */
+.closebtn {
+  position: absolute;
+  right: 60px;
+  bottom: 22px;
+  color: white;
+  font-weight: bold;
+
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
